@@ -4,6 +4,7 @@ project(zaliczenie VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
+include_directories(".")
 file(GLOB zaliczenie_src "*.hpp" "*.cpp")
 
 add_executable(zaliczenie ${zaliczenie_src})
