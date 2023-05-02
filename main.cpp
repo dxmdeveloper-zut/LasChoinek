@@ -2,6 +2,7 @@
 #include "Forest.hpp"
 #include "terminal.hpp"
 #include <random>
+#include <Shapes/Triangle/Triangle.hpp>
 
 #define FOREST_HEIGHT 80
 #define FOREST_WIDTH 160
@@ -17,6 +18,10 @@ T genRand(T min, T max){
 }
 
 int main(int argc, char * argv[]){
+    // ! UNIT TESTS !
+    // ! ---------- !
+
+
     Forest forest(FOREST_WIDTH, FOREST_HEIGHT);
     const char symbols[] = {'#', '@', '#', '$', '^'};
     
