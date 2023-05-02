@@ -1,22 +1,23 @@
 #pragma once
 #include <stdlib.h>
 #include <rgb.hpp>
+#include <memory>
+#include <functional>
 
 /**
- @brief polimorphic base class
-    handles all dynamic allocation for derived classes.
-    subclasses must handle drawing (on Shape::matrix) on its own.
+ @brief abstract class
 */
 class Shape {
     public:
     void matcpy(int ** arr, size_t arr_w, size_t arr_h, int interp1sAs);
-    ~Shape(); //deletes matrix
+    virtual ~Shape()=0;
 
     protected:
     Shape(size_t mat_width, size_t mat_height, RGB color, char symbol='#');
-    char **matrix = nullptr; // TODO: protected operator [], matrix itself should be private 
+    std::unique_ptr<bool*[] /*TODO: test []*/, std::function<void(bool**)> > matrix;
 
     private:
+    virtual void drawMatrix() = 0;
     RGB color = {0};
     char symbol = '#';
     size_t mat_height = 0, mat_width = 0;
