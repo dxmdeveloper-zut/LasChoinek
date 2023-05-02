@@ -10,11 +10,11 @@
 class Shape {
     public:
     void matcpy(int ** arr, size_t arr_w, size_t arr_h, int interp1sAs);
-    virtual ~Shape()=0;
+    virtual ~Shape(); 
 
     protected:
     Shape(size_t mat_width, size_t mat_height, RGB color, char symbol='#');
-    std::unique_ptr<bool*[] /*TODO: test []*/, std::function<void(bool**)> > matrix;
+    bool ** matrix;
 
     private:
     virtual void drawMatrix() = 0;
