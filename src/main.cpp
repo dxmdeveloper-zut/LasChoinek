@@ -19,11 +19,10 @@ T genRand(T min, T max){
 
 int main(int argc, char * argv[]){
     // ! UNIT TESTS !
-    Triangle triangle(20, 40, 0 /*rotation to implement*/, {255, 0, 0}, '#');
+    Triangle triangle(20, 39, 1 , {255, 0, 0},0,0, '#');
     triangle.dbg_printMatrix();
 
     // ! ---------- !
-
 
     Forest forest(FOREST_WIDTH, FOREST_HEIGHT);
     const char symbols[] = {'#', '@', '#', '$', '^'};

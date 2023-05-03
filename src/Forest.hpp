@@ -2,7 +2,7 @@
 #include <vector>
 #include <Shapes/Shape.hpp>
 #include <Drawables/Drawable.hpp>
-#include "choinka.hpp"
+
 class Forest
 {
 public:
@@ -19,7 +19,5 @@ private:
 	int ** matrix;
 	std::vector<Shape*> shapesVec;
 	std::vector<Drawable*> graphicalObjectsVec;
-	// TODO : REMOVE!!!
-	std::vector<Choinka*> trees;
 };
 

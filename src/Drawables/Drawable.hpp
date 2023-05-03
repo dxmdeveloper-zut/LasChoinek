@@ -6,13 +6,14 @@
 /* abstract class */
 class Drawable {
     public:
-    void shapesPtrsCpy(std::vector<Shape*> &vec);
+    void shapesCpy(std::vector<Shape*> &vec, int ** matrix, size_t mat_width, size_t mat_height);
     ~Drawable();
 
     protected:
-    Drawable(size_t shapesArrSize);
+    Drawable(size_t shapesArrSize, int posX = 0, int posY = 0);
+    Shape **shapesArr = nullptr;
+    int posX = 0, posY = 0;
 
     private:
     size_t shapesArrSize;
-    Shape **shapesArr = nullptr;
 };

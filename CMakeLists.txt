@@ -4,7 +4,7 @@ project(zaliczenie VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-add_definitions(-DDEBUG=0)
+add_definitions(-DDEBUG=1)
 
 include_directories("src")
 file(GLOB_RECURSE zaliczenie_src "src/*.hpp" "src/*.cpp")

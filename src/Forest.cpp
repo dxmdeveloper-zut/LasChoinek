@@ -1,4 +1,6 @@
 #include "Forest.hpp"
+#include <Drawables/Tree/Tree.hpp>
+#include <Drawables/House/House.hpp>
 #include "terminal.hpp"
 #include <iostream>
 
@@ -10,14 +12,14 @@ Forest::Forest(size_t width, size_t height): width{width}, height{height}{
 	this->matrix = new int * [height];
 	for(size_t y = 0; y < height; y++)
 		this->matrix[y] = new int [width];
+
+	House * house = new House(25, 25);
+	house->shapesCpy(this->shapesVec, this->matrix, this->width, this->height);
 }
 
 void Forest::addTree(size_t height, RGB color, char symbol, int x, int y) {
-	Choinka* tree = new Choinka(height, color, symbol);
-	tree->setPosition(x, y);
-	tree->matcpy(this->matrix, this->width, this->height, this->trees.size());
-
-	this->trees.push_back(tree);
+	Tree * tree = new Tree(height, color, x, y, symbol);
+	tree->shapesCpy(this->shapesVec, this->matrix, this->width, this->height);
 }
 
 void Forest::printForest(){
@@ -34,11 +36,12 @@ void Forest::printForest(){
 				}
 			}
 			else {
-				Choinka * tree = this->trees.at(val-1);
+				Shape* shape = this->shapesVec.at(val-1);
+				if(shape == nullptr) {std::cout << " "; continue;}
 				if(buffVal != val){
-					std::cout << terminal::setTextColorEsc(tree->getColor());
+					std::cout << terminal::setTextColorEsc(shape->getColor());
 				}
-				std::cout << tree->getSymbol();
+				std::cout << shape->getSymbol();
 			}
 		}
 		std::cout << std::endl;
@@ -47,8 +50,8 @@ void Forest::printForest(){
 }
 
 Forest::~Forest(){
-	for (auto &tree : trees) {
-		delete tree;
+	for (auto drawablep : graphicalObjectsVec) {
+		delete drawablep;
 	}
 	if(this->matrix){
 		for(size_t y = 0; y < this->height; y++) 
