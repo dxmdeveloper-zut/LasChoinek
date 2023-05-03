@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
-#include <Shapes/Shape/Shape.hpp>
-#include <Graphical.hpp>
+#include <Shapes/Shape.hpp>
+#include <Drawables/Drawable.hpp>
 #include "choinka.hpp"
 class Forest
 {
@@ -18,7 +18,7 @@ private:
 	size_t width, height;
 	int ** matrix;
 	std::vector<Shape*> shapesVec;
-	std::vector<Graphical*> graphicalObjectsVec;
+	std::vector<Drawable*> graphicalObjectsVec;
 	// TODO : REMOVE!!!
 	std::vector<Choinka*> trees;
 };

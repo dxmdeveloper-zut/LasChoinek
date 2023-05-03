@@ -1,16 +1,16 @@
 #pragma once
-#include <Shapes/Shape/Shape.hpp>
+#include <Shapes/Shape.hpp>
 #include <vector>
 #include <stdlib.h>
 
 /* abstract class */
-class Graphical {
+class Drawable {
     public:
     void shapesPtrsCpy(std::vector<Shape*> &vec);
-    ~Graphical();
+    ~Drawable();
 
     protected:
-    Graphical(size_t shapesArrSize);
+    Drawable(size_t shapesArrSize);
 
     private:
     size_t shapesArrSize;

@@ -1,5 +1,5 @@
 #pragma once
-#include <Shapes/Shape/Shape.hpp>
+#include <Shapes/Shape.hpp>
 
 class Triangle : public Shape {
     public:
