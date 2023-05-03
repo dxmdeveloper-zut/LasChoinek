@@ -4,8 +4,10 @@ project(zaliczenie VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-include_directories(".")
-file(GLOB zaliczenie_src "*.hpp" "*.cpp")
+add_definitions(-DDEBUG=0)
+
+include_directories("src")
+file(GLOB_RECURSE zaliczenie_src "src/*.hpp" "src/*.cpp")
 
 add_executable(zaliczenie ${zaliczenie_src})
 #set_target_properties(zaliczenie PROPERTIES COMPILE_FLAGS "-m32" LINK_FLAGS "-m32")
